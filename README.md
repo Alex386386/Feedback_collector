@@ -10,12 +10,36 @@
 
 Адрес IP для проверки проекта - 158.160.42.239
 
+### Установка, Как запустить проект:
+
+Клонируйте репозиторий:
+
+```
+git clone git@github.com:Alex386386/yamdb_final.git
+```
+
+Создайте и настройте в репозитории файл yamdb_workflow.yml, в нём должны быть проверка тестами уже находящимися в репозитории
+и деплой на ваш удалённый сервер.
+
+Выполните команду push что бы запустить работу GitHub Actions
+
+Непосредственно на сервере выполните следующие команды: 
+
+```
+sudo docker compose exec web python manage.py migrate
+sudo docker compose exec web python manage.py createsuperuser
+sudo docker compose exec web python manage.py collectstatic --no-input
+sudo docker compose exec web python manage.py load_all_data
+```
+
+Теперь вам стал доступен сервис yamdb_final
+
 ### Примеры работы с API для всех пользователей
 
 Подробная документация доступна по эндпоинту 
 
 ```
-http://158.160.42.239/redoc/
+http://<IP_вашего_сервера>/redoc/
 ```
 
 Для неавторизованных пользователей работа с API доступна в режиме чтения, что-либо изменить или создать не получится.
