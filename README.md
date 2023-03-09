@@ -29,7 +29,6 @@ git clone git@github.com:Alex386386/yamdb_final.git
 sudo docker compose exec web python manage.py migrate
 sudo docker compose exec web python manage.py createsuperuser
 sudo docker compose exec web python manage.py collectstatic --no-input
-sudo docker compose exec web python manage.py load_all_data
 ```
 
 Теперь вам стал доступен сервис yamdb_final
